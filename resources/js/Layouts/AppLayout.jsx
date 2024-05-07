@@ -1,10 +1,13 @@
+import Footer from '@/Components/Footer'
 import Navigation from '@/Components/Navigation'
-import React from 'react'
+import React, { Children } from 'react'
 
-export default function AppLayout() {
+export default function AppLayout({ children }) {
     return (
         <>
             <Navigation />
+            {children}
+            <Footer />
         </>
     )
 }

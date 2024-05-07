@@ -1,11 +1,14 @@
-import { Link } from '@inertiajs/react'
+import { Link, usePage } from '@inertiajs/react'
 import React from 'react'
 import NavigationLink from './NavigationLink'
 import NavigationDropdownMenu from './NavigationDropdownMenu'
+import NavigationMobile from './NavigationMobile'
 
 export default function Navigation() {
+    const { auth } = usePage().props
     return (
         <>
+            <NavigationMobile />
             <nav className="hidden border-b border-dashed border-gray-800 bg-gray-900 py-4 shadow lg:block">
                 <div className="mx-auto max-w-screen-2xl">
                     <div className="flex items-center justify-between">
@@ -17,13 +20,25 @@ export default function Navigation() {
                         <div className="flex flex-1 items-center justify-between">
                             <div>
                                 <NavigationLink href={'/'}>Home</NavigationLink>
+                                <NavigationLink href={'/'}>Articles</NavigationLink>
                             </div>
                             <div className="flex items-center">
-                                <NavigationDropdownMenu label="Arya">
-                                    <NavigationDropdownMenu.Link>
-                                        Dashboard
-                                    </NavigationDropdownMenu.Link>
-                                </NavigationDropdownMenu>
+                                {auth.user ? (
+                                    <NavigationDropdownMenu label={auth.user.name}>
+                                        <NavigationDropdownMenu.Link>
+                                            Dashboard
+                                        </NavigationDropdownMenu.Link>
+                                        <NavigationDropdownMenu.Link
+                                            href={route('logout')}
+                                            method="POST"
+                                            as="button"
+                                        >
+                                            Logout
+                                        </NavigationDropdownMenu.Link>
+                                    </NavigationDropdownMenu>
+                                ) : (
+                                    null
+                                )}
                             </div>
                         </div>
                     </div>
