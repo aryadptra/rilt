@@ -9,6 +9,7 @@ use Inertia\Inertia;
 
 Route::get("/", HomeController::class)->name("home");
 
+Route::get('articles/table', [ArticleController::class, 'table'])->name('articles.table');
 Route::resource('articles', ArticleController::class);
 
 Route::get('/dashboard', function () {

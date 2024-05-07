@@ -20,13 +20,16 @@ export default function Navigation() {
                         <div className="flex flex-1 items-center justify-between">
                             <div>
                                 <NavigationLink href={'/'}>Home</NavigationLink>
-                                <NavigationLink href={'/'}>Articles</NavigationLink>
+                                <NavigationLink href={route('articles.index')}>Articles</NavigationLink>
                             </div>
                             <div className="flex items-center">
                                 {auth.user ? (
                                     <NavigationDropdownMenu label={auth.user.name}>
                                         <NavigationDropdownMenu.Link>
                                             Dashboard
+                                        </NavigationDropdownMenu.Link>
+                                        <NavigationDropdownMenu.Link href={route('articles.table')}>
+                                            My Articles
                                         </NavigationDropdownMenu.Link>
                                         <NavigationDropdownMenu.Link
                                             href={route('logout')}
