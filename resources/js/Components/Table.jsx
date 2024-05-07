@@ -4,15 +4,33 @@ import clsx from 'clsx';
 
 const Table = ({ children, className = '' }) => {
     return (
-        <div className={clsx(className, 'flex flex-col')}>
-            <div className="overflow-x-auto">
-                <div className="inline-block min-w-full align-middle">
-                    <table className="min-w-full divide-y divide-gray-200">
-                        {children}
-                    </table>
+        <div className="grid grid-cols-12 gap-5">
+            <div className="col-span-12 md:col-span-2">
+                <ul className="w-48 text-sm font-medium  rounded-lg bg-gray-800 border-gray-600 text-white">
+                    <li className="w-full px-4 py-2 border-b border-gray-500 rounded-t-lg">
+                        <Link href={route('articles.table')}>Semua Artikel</Link>
+                    </li>
+                    <li className="w-full px-4 py-2 border-b border-gray-500 rounded-t-lg">
+                        <Link href={route('articles.create')}>Buat Artikel</Link>
+                    </li>
+                    <li className="w-full px-4 py-2 border-b border-gray-500">
+                        <Link href={route('articles.table', { status: 'Published' })}>Publikasi</Link>
+                    </li>
+                </ul >
+            </div >
+            <div className="col-span-8 md:col-span-10">
+
+                <div className={clsx(className, 'flex flex-col')}>
+                    <div className="overflow-x-auto">
+                        <div className="inline-block min-w-full align-middle">
+                            <table className="min-w-full divide-y divide-gray-200">
+                                {children}
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

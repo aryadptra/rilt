@@ -11,7 +11,7 @@ export default function ArticleTable(props) {
     const { data: articles, meta, links } = props.articles;
     const { ask } = useSwal();
     return (
-        <Container>
+        <Container className='mt-5'>
             <Table>
                 <Table.Thead>
                     <tr>

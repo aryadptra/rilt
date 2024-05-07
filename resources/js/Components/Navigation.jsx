@@ -19,17 +19,20 @@ export default function Navigation() {
                         </Link>
                         <div className="flex flex-1 items-center justify-between">
                             <div>
-                                <NavigationLink href={'/'}>Home</NavigationLink>
-                                <NavigationLink href={route('articles.index')}>Articles</NavigationLink>
+                                <NavigationLink href={'/'}>Beranda</NavigationLink>
+                                <NavigationLink>
+                                    <NavigationDropdownMenu label={'Artikel'}>
+                                        <NavigationDropdownMenu.Link href={route('articles.table')}>Semua Artikel</NavigationDropdownMenu.Link>
+                                        <NavigationDropdownMenu.Link href={route('articles.create')}>Buat Artikel</NavigationDropdownMenu.Link>
+                                        <NavigationDropdownMenu.Link href={route('articles.table', { status: 'Published' })}>Publikasi</NavigationDropdownMenu.Link>
+                                    </NavigationDropdownMenu>
+                                </NavigationLink>
                             </div>
                             <div className="flex items-center">
                                 {auth.user ? (
                                     <NavigationDropdownMenu label={auth.user.name}>
-                                        <NavigationDropdownMenu.Link>
-                                            Dashboard
-                                        </NavigationDropdownMenu.Link>
                                         <NavigationDropdownMenu.Link href={route('articles.table')}>
-                                            My Articles
+                                            Artikel
                                         </NavigationDropdownMenu.Link>
                                         <NavigationDropdownMenu.Link
                                             href={route('logout')}
