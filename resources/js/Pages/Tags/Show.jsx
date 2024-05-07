@@ -15,7 +15,7 @@ export default function Show({ tag, ...props }) {
             <Hero>
                 <Hero.Title>{tag.name}</Hero.Title>
                 <Hero.Subtitle>
-                    This page will show you the articles about {tag.name}
+                    Halaman ini menampilkan semua artikel tentang {tag.name}
                 </Hero.Subtitle>
             </Hero>
 

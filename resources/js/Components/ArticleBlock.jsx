@@ -17,7 +17,7 @@ export default function ArticleBlock({ article }) {
                             {article.tags.map((tag) => (
                                 <Link
                                     key={tag.slug}
-                                    href=''
+                                    href={route('tags.show', tag.slug)}
                                     className="text-white hover:bg-blue-600 bg-blue-500 transition duration-200 px-2 py-1 rounded-md"
                                 >
                                     {tag.name}
