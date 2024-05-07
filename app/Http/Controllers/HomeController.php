@@ -15,7 +15,7 @@ class HomeController extends Controller
     public function __invoke(Request $request)
     {
         $articles = Article::query()
-            ->select('id', 'user_id', 'title', 'slug', 'teaser', 'created_at', 'status')
+            ->select('id', 'user_id', 'title', 'slug', 'teaser', 'created_at', 'status', 'picture')
             ->with(['tags'])
             ->limit(9)
             ->paginate(9);

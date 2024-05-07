@@ -2,12 +2,12 @@ import { Link } from '@inertiajs/react';
 import React from 'react';
 
 export default function ArticleBlock({ article }) {
-
+    console.log(article)
     return (
         <div className="border shadow-sm rounded-lg overflow-hidden">
             {article.picture ? (
                 <Link href={route('articles.show', article.slug)}>
-                    <img src={article.picture} alt="" />
+                    <img src={article.picture} alt={article.title} />
                 </Link>
             ) : null}
             <div className="px-4 py-4">

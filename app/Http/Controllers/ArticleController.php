@@ -101,8 +101,14 @@ class ArticleController extends Controller implements HasMiddleware
             'category_id' => $request->category_id,
             'status' => $request->status,
             'body' => $request->body,
-            'picture' => $request->hasFile('picture') ? $picture->storeAs('images/articles', $slug . '.' . $picture->extension()) : null,
+            'picture' => $request->hasFile('picture') ? $picture->storeAs('images/articles', $slug . '.' . $picture->extension(), 'public') : null,
         ]);
+
+        // Dapatkan path ke gambar yang disimpan
+        $picturePath = $article->picture;
+
+        // Buat URL lengkap ke gambar
+        $pictureUrl = $picturePath ? asset('storage/' . $picturePath) : null;
 
         $article->tags()->attach($request->tags);
 
@@ -115,7 +121,7 @@ class ArticleController extends Controller implements HasMiddleware
     public function show(Article $article)
     {
         $articles = Article::query()
-            ->select('id', 'title', 'slug')
+            ->select('id', 'title', 'slug', 'picture')
             ->whereNot('id', $article->id)
             ->whereBelongsTo($article->category)
             ->limit(10)
@@ -159,7 +165,7 @@ class ArticleController extends Controller implements HasMiddleware
             'category_id' => $request->category_id,
             'body' => $request->body,
             'status' => $request->status,
-            'picture' => $request->hasFile('picture') ? $picture->storeAs('images/articles', $article->slug . '.' . $picture->extension()) : $article->picture,
+            'picture' => $request->hasFile('picture') ? $picture->storeAs('images/articles', $article->slug . '.' . $picture->extension(), 'public') : $article->picture,
         ]);
 
         $article->tags()->sync($request->tags, true);
