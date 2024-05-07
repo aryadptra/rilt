@@ -1,8 +1,9 @@
+import clsx from 'clsx'
 import React from 'react'
 
-export default function Container({ children }) {
+export default function Container({ className = '', children }) {
     return (
-        <div className="mx-auto max-w-screen-2xl md:px-0">
+        <div className={clsx(className, "mx-auto max-w-screen-2xl md:px-0")}>
             {children}
         </div>
     )
