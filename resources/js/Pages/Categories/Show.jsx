@@ -15,7 +15,7 @@ export default function Show({ category, ...props }) {
             <Hero>
                 <Hero.Title>{category.name}</Hero.Title>
                 <Hero.Subtitle>
-                    This page will show you the articles about {category.name}
+                    Halaman ini menampilkan semua {category.name.toLowerCase()}
                 </Hero.Subtitle>
             </Hero>
 

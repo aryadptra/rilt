@@ -11,13 +11,13 @@ const Index = ({ articles }) => {
         <>
             <Head title="Artikel" />
             <Hero>
-                <Hero.Title>Artikel Terkini</Hero.Title>
+                <Hero.Title>Daftar Artikel</Hero.Title>
                 <Hero.Subtitle>
-                    Pelajari artikel terkini yang pernah saya seputar web programming
+                    Belajar melalui artikel yang dapat membantu kamu dalam belajar web programming
                 </Hero.Subtitle>
                 <Hero.Content>
                     <p>
-                        Informasi seputar web programming dapat kamu lihat di website ini. Saya juga terbuka jika ada pertanyaan dan konsultasi mengenai web programming.
+
                     </p>
                 </Hero.Content>
             </Hero>

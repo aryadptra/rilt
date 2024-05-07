@@ -29,29 +29,16 @@ export default function NavigationMobile() {
                         </svg>
                     }
                 >
-                    <NavigationDropdownMenu.Link href={'/'}>Home</NavigationDropdownMenu.Link>
-                    <NavigationDropdownMenu.Link href={'/articles'}>
-                        Articles
+                    <NavigationDropdownMenu.Link href={'/'}>Beranda</NavigationDropdownMenu.Link>
+                    <NavigationDropdownMenu.Link href={route('articles.index')}>
+                        Daftar Artikel
                     </NavigationDropdownMenu.Link>
                     {auth.user ? (
                         <>
-                            <NavigationDropdownMenu.Link href={route('dashboard')}>
-                                Dashboard
-                            </NavigationDropdownMenu.Link>
-                            <NavigationDropdownMenu.Link href={'#'}>
-                                My profile
-                            </NavigationDropdownMenu.Link>
-                            <NavigationDropdownMenu.Link href={'#'}>
-                                Settings
-                            </NavigationDropdownMenu.Link>
                             <NavigationDropdownMenu.Divider />
-                            <NavigationDropdownMenu.Link href={'#'}>
-                                My articles
+                            <NavigationDropdownMenu.Link href={route('articles.table')}>
+                                Artikel Saya
                             </NavigationDropdownMenu.Link>
-                            <NavigationDropdownMenu.Link href={'#'}>
-                                New article
-                            </NavigationDropdownMenu.Link>
-                            <NavigationDropdownMenu.Divider />
                             <NavigationDropdownMenu.Link
                                 href={route('logout')}
                                 method="POST"
@@ -61,15 +48,16 @@ export default function NavigationMobile() {
                             </NavigationDropdownMenu.Link>
                         </>
                     ) : (
-                        <>
-                            <NavigationDropdownMenu.Divider />
-                            <NavigationDropdownMenu.Link href={route('login')}>
-                                Login
-                            </NavigationDropdownMenu.Link>
-                            <NavigationDropdownMenu.Link href={route('register')}>
-                                Register
-                            </NavigationDropdownMenu.Link>
-                        </>
+                        null
+                        // <>
+                        //     <NavigationDropdownMenu.Divider />
+                        //     <NavigationDropdownMenu.Link href={route('login')}>
+                        //         Login
+                        //     </NavigationDropdownMenu.Link>
+                        //     <NavigationDropdownMenu.Link href={route('register')}>
+                        //         Register
+                        //     </NavigationDropdownMenu.Link>
+                        // </>
                     )}
                 </NavigationDropdownMenu>
             </div>

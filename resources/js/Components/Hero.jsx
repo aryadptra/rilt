@@ -6,7 +6,7 @@ function Hero({ className = '', children }) {
         <div
             className={clsx(
                 className,
-                'mb-8 md:mb-16 grid grid-cols-12 bg-gray-800 py-5 px-5 md:px-0 lg:py-32'
+                'mb-8 md:mb-16 grid grid-cols-12 bg-gray-800 py-5 px-5 md:px-0 lg:py-24'
             )}
         >
             <div className="col-span-12">
@@ -35,7 +35,7 @@ function Subtitle({ children }) {
 }
 function Content({ children }) {
     return (
-        <div className="mt-4 leading-relaxed text-gray-400 lg:text-xl">
+        <div className="mt-2 lg:mt-4 leading-relaxed text-gray-400 lg:text-xl">
             {children}
         </div>
     );

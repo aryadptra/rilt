@@ -13,11 +13,11 @@ const Home = ({ articles }) => {
             <Hero>
                 <Hero.Title>Halo 👋, Saya Arya</Hero.Title>
                 <Hero.Subtitle>
-                    Saya adalah seorang software developer yang saat ini bekerja remote untuk perusahaan di Jakarta dan Bogor.
+                    Saya adalah seorang software developer yang memiliki pengalaman selama lebih dari 4 tahun.
                 </Hero.Subtitle>
                 <Hero.Content>
                     <p>
-                        Informasi seputar web programming dapat kamu lihat di website ini. Saya juga terbuka jika ada pertanyaan dan konsultasi mengenai web programming.
+                        Informasi seputar web programming dapat kamu lihat pada website ini.
                     </p>
                 </Hero.Content>
             </Hero>
