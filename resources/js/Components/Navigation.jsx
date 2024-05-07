@@ -18,21 +18,17 @@ export default function Navigation() {
                             {import.meta.env.VITE_APP_NAME}
                         </Link>
                         <div className="flex flex-1 items-center justify-between">
-                            <div>
-                                <NavigationLink href={'/'}>Beranda</NavigationLink>
-                                <NavigationLink href={route('articles.index')}>
-                                    {/* <NavigationDropdownMenu label={'Artikel'}>
-                                        {categories_global.map((category, index) => (
-                                            <NavigationDropdownMenu.Link
-                                                key={index}
-                                                href={route('articles.index', { category_id: category.id })}
-                                            >
-                                                {category.name}
-                                            </NavigationDropdownMenu.Link>
-                                        ))}
-                                    </NavigationDropdownMenu> */}
-                                    Artikel
-                                </NavigationLink>
+                            <div className='flex items-center'>
+                                <NavigationLink href={route('home')}
+                                    active={route().current('home')}>Beranda</NavigationLink>
+                                {/* Artikel */}
+                                <NavigationDropdownMenu label={'Artikel'} active={route().current('articles.*')}>
+                                    {categories_global.map((category, index) => (
+                                        <NavigationDropdownMenu.Link key={index} href={route('categories.show', category.slug)}>
+                                            {category.name}
+                                        </NavigationDropdownMenu.Link>
+                                    ))}
+                                </NavigationDropdownMenu>
                             </div>
                             <div className="flex items-center">
                                 {auth.user ? (

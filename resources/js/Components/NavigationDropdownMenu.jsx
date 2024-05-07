@@ -3,7 +3,7 @@ import { Menu, Transition } from '@headlessui/react';
 import clsx from 'clsx';
 import { Link as InertiaLink } from '@inertiajs/react';
 
-function NavigationDropdownMenu({ toggleAnimate = true, label, children }) {
+function NavigationDropdownMenu({ toggleAnimate = true, label, active, children }) {
     return (
         <Menu as="div" className="relative">
             {({ open }) => (
@@ -11,7 +11,8 @@ function NavigationDropdownMenu({ toggleAnimate = true, label, children }) {
                     <Menu.Button
                         className={clsx(
                             'flex items-center gap-x-2 text-gray-400',
-                            open && 'text-white'
+                            open && 'text-white',
+                            active && 'text-white'
                         )}
                     >
                         {label}
@@ -47,8 +48,9 @@ function NavigationDropdownMenu({ toggleAnimate = true, label, children }) {
                         </Menu.Items>
                     </Transition>
                 </>
-            )}
-        </Menu>
+            )
+            }
+        </Menu >
     );
 }
 

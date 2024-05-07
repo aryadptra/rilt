@@ -2,7 +2,6 @@ import { Link } from '@inertiajs/react';
 import React from 'react';
 
 export default function ArticleBlock({ article }) {
-    console.log(article)
     return (
         <div className="border shadow-sm rounded-lg overflow-hidden">
             {article.picture ? (

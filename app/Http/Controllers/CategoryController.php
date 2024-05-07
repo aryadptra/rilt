@@ -13,7 +13,7 @@ class CategoryController extends Controller
     public function show(Category $category)
     {
         $articles = Article::query()
-            ->select('id', 'user_id', 'title', 'slug', 'teaser', 'created_at')
+            ->select('id', 'user_id', 'title', 'slug', 'teaser', 'created_at', 'picture')
             ->where('category_id', $category->id)
             ->with(['tags'])
             ->limit(10)
