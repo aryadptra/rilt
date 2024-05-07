@@ -11,10 +11,12 @@ use App\Models\Article;
 use App\Models\Category;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Storage;
 
-class ArticleController extends Controller
+class ArticleController extends Controller implements HasMiddleware
 {
     public $tags;
     public $categories;
@@ -27,6 +29,17 @@ class ArticleController extends Controller
             'id' => $status->value,
             'name' => str($status->label())->ucfirst(),
         ]);
+    }
+
+    /**
+     * Get the middleware that should be assigned to the controller.
+     */
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('auth', except: ['show', 'index']),
+            new Middleware('hasRole', only: ['table', 'create'])
+        ];
     }
 
     public function table(Request $request)

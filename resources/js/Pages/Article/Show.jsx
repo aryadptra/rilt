@@ -16,6 +16,10 @@ export default function Show(props) {
                         Fill in:{' '}
                         <Link
                             className="text-white underline"
+                            href={route(
+                                'categories.show',
+                                article.category.slug
+                            )}
 
                         >
                             {article.category.name}
@@ -33,6 +37,9 @@ export default function Show(props) {
                                 <Link
                                     className="bg-gray-700 text-white px-2 py-1 text-xs font-medium hover:bg-gray-600 transition duration-200 rounded shadow border-t border-gray-600"
                                     key={tag.slug}
+                                    href={route('tags.show', tag.slug)}
+
+
                                 >
                                     {tag.name}
                                 </Link>

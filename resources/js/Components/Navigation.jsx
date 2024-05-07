@@ -5,7 +5,7 @@ import NavigationDropdownMenu from './NavigationDropdownMenu'
 import NavigationMobile from './NavigationMobile'
 
 export default function Navigation() {
-    const { auth } = usePage().props
+    const { auth, categories_global } = usePage().props
     return (
         <>
             <NavigationMobile />
@@ -20,12 +20,18 @@ export default function Navigation() {
                         <div className="flex flex-1 items-center justify-between">
                             <div>
                                 <NavigationLink href={'/'}>Beranda</NavigationLink>
-                                <NavigationLink>
-                                    <NavigationDropdownMenu label={'Artikel'}>
-                                        <NavigationDropdownMenu.Link href={route('articles.table')}>Semua Artikel</NavigationDropdownMenu.Link>
-                                        <NavigationDropdownMenu.Link href={route('articles.create')}>Buat Artikel</NavigationDropdownMenu.Link>
-                                        <NavigationDropdownMenu.Link href={route('articles.table', { status: 'Published' })}>Publikasi</NavigationDropdownMenu.Link>
-                                    </NavigationDropdownMenu>
+                                <NavigationLink href={route('articles.index')}>
+                                    {/* <NavigationDropdownMenu label={'Artikel'}>
+                                        {categories_global.map((category, index) => (
+                                            <NavigationDropdownMenu.Link
+                                                key={index}
+                                                href={route('articles.index', { category_id: category.id })}
+                                            >
+                                                {category.name}
+                                            </NavigationDropdownMenu.Link>
+                                        ))}
+                                    </NavigationDropdownMenu> */}
+                                    Artikel
                                 </NavigationLink>
                             </div>
                             <div className="flex items-center">

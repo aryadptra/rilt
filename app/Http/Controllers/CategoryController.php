@@ -4,24 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\Article\ArticleItemResource;
 use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-class HomeController extends Controller
+class CategoryController extends Controller
 {
-    /**
-     * Handle the incoming request.
-     */
-    public function __invoke(Request $request)
+    public function show(Category $category)
     {
         $articles = Article::query()
-            ->select('id', 'user_id', 'title', 'slug', 'teaser', 'created_at', 'status')
+            ->select('id', 'user_id', 'title', 'slug', 'teaser', 'created_at')
+            ->where('category_id', $category->id)
             ->with(['tags'])
-            ->limit(9)
+            ->limit(10)
             ->paginate(9);
-        // return ArticleItemResource::collection($articles);
-        return Inertia::render('Home', [
+        return Inertia::render('Categories/Show', [
             'articles' => ArticleItemResource::collection($articles),
+            'category' => $category
         ]);
     }
 }
