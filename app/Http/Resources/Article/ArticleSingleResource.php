@@ -21,7 +21,7 @@ class ArticleSingleResource extends JsonResource
             'teaser' => $this->teaser,
             'body' => str($this->body)->markdown(),
             'author' => $this->author,
-            'picture' => $this->picture ? asset($this->picture) : null,
+            'picture' => $this->picture ? Storage::url($this->picture) : null,
             'category' => [
                 'name' => $this->category->name,
                 'slug' => $this->category->slug,
