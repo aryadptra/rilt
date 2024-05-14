@@ -8,10 +8,10 @@ const Table = ({ children, className = '' }) => {
             <div className="col-span-12 md:col-span-2">
                 <ul className="w-full text-sm font-medium  rounded-lg bg-gray-800 border-gray-600 text-white">
                     <li className="w-full px-4 py-2 border-b border-gray-500 rounded-t-lg">
-                        <Link href={route('articles.table')}>Semua Artikel</Link>
+                        <Link href={route('series.table')}>Semua Series</Link>
                     </li>
                     <li className="w-full px-4 py-2 border-b border-gray-500 rounded-t-lg">
-                        <Link href={route('articles.create')}>Buat Artikel</Link>
+                        <Link href={route('series.create')}>Buat Series</Link>
                     </li>
                 </ul >
             </div >

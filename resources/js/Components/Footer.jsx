@@ -12,7 +12,7 @@ export default function Footer() {
                         Saya adalah seorang web developer yang saat ini bekerja full-time remote di Jakarta. Saat ini saya tinggal di Bogor, Jawa Barat. Pernah bekerja sebagai IT Supervisor di salah satu perusahaan di Bogor selama 1.5 tahun. Terbiasa menggunakan Laravel, ReactJS, VueJS, Tailwind dan Inertia, serta <i>advance</i> dalam menggunakan CodeIgniter.
                     </p>
                     <p className="font-mono text-sm text-gray-400 mt-10 max-w-lg mx-auto">
-                        Dibuat dan didesain dengan menggunakan cinta oleh{' '}
+                        Dibuat dan didesain dengan menggunakan cinta oleh {' '}
                         <strong className="font-semibold text-white">
                             {import.meta.env.VITE_APP_NAME}
                         </strong>{' '}

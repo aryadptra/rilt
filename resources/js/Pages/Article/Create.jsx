@@ -1,5 +1,5 @@
 import React from 'react';
-import AppLayout from '@/Layouts/AppLayout';
+import DashboardLayout from '@/Layouts/DashboardLayout';
 import { Head, Link, router, useForm } from '@inertiajs/react';
 import Hero from '@/Components/Hero';
 import Container from '@/Components/Container';
@@ -60,4 +60,4 @@ export default function Create({ statuses, tags }) {
     );
 }
 
-Create.layout = (page) => <AppLayout children={page} />;
+Create.layout = (page) => <DashboardLayout children={page} />;

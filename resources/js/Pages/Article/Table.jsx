@@ -5,7 +5,7 @@ import { Head, Link } from '@inertiajs/react';
 import Table from '@/Components/Table';
 import useSwal from '@/Hooks/useSwal';
 import clsx from 'clsx'
-import AppLayout from '@/Layouts/AppLayout';
+import DashboardLayout from '@/Layouts/DashboardLayout';
 
 export default function ArticleTable(props) {
     const { data: articles, meta, links } = props.articles;
@@ -108,4 +108,4 @@ export default function ArticleTable(props) {
     );
 }
 
-ArticleTable.layout = (page) => <AppLayout children={page} />;
+ArticleTable.layout = (page) => <DashboardLayout children={page} />;

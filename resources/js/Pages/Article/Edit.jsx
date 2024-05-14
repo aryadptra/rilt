@@ -1,5 +1,5 @@
 import React from 'react';
-import AppLayout from '@/Layouts/AppLayout';
+import DashboardLayout from '@/Layouts/DashboardLayout';
 import { Head, router, useForm } from '@inertiajs/react';
 import Hero from '@/Components/Hero';
 import Container from '@/Components/Container';
@@ -45,4 +45,4 @@ export default function Edit({ article, statuses }) {
     );
 }
 
-Edit.layout = (page) => <AppLayout children={page} />;
+Edit.layout = (page) => <DashboardLayout children={page} />;

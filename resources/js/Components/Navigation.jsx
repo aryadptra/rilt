@@ -29,12 +29,18 @@ export default function Navigation() {
                                         </NavigationDropdownMenu.Link>
                                     ))}
                                 </NavigationDropdownMenu>
+
+                                <NavigationLink href={route('series.index')}
+                                    active={route().current('series.*')}>Series</NavigationLink>
                             </div>
                             <div className="flex items-center">
                                 {auth.user ? (
                                     <NavigationDropdownMenu label={auth.user.name}>
                                         <NavigationDropdownMenu.Link href={route('articles.table')}>
                                             Artikel
+                                        </NavigationDropdownMenu.Link>
+                                        <NavigationDropdownMenu.Link href={route('series.table')}>
+                                            Series
                                         </NavigationDropdownMenu.Link>
                                         <NavigationDropdownMenu.Link
                                             href={route('logout')}
