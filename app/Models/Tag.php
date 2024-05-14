@@ -15,4 +15,11 @@ class Tag extends Model
             ->select('title', 'slug', 'picture', 'user_id', 'teaser', 'created_at', 'id')
             ->with(['tags' => fn($tag) => $tag->select('name', 'slug')]);
     }
+
+    public function series()
+    {
+        return $this->belongsToMany(Series::class)
+            ->select('title', 'slug', 'picture', 'user_id', 'teaser', 'created_at', 'id')
+            ->with(['tags' => fn($tag) => $tag->select('name', 'slug')]);
+    }
 }
